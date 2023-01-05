@@ -8,6 +8,7 @@ use sc_finality_grandpa::SharedVoterState;
 use sc_keystore::LocalKeystore;
 use sc_service::{error::Error as ServiceError, Configuration, TaskManager};
 use sc_telemetry::{Telemetry, TelemetryWorker};
+use sp_authority_permission::AlwaysPermissionGranted;
 use sp_consensus_aura::sr25519::AuthorityPair as AuraPair;
 use std::{sync::Arc, time::Duration};
 
@@ -205,12 +206,15 @@ pub fn new_full(mut config: Configuration) -> Result<TaskManager, ServiceError> 
 			warp_sync: Some(warp_sync),
 		})?;
 
+	let permission_resolver = Arc::new(AlwaysPermissionGranted {});
+
 	if config.offchain_worker.enabled {
 		sc_service::build_offchain_workers(
 			&config,
 			task_manager.spawn_handle(),
 			client.clone(),
 			network.clone(),
+			permission_resolver.clone(),
 		);
 	}
 
@@ -286,6 +290,7 @@ pub fn new_full(mut config: Configuration) -> Result<TaskManager, ServiceError> 
 				block_proposal_slot_portion: SlotProportion::new(2f32 / 3f32),
 				max_block_proposal_slot_portion: None,
 				telemetry: telemetry.as_ref().map(|x| x.handle()),
+				permission_resolver: permission_resolver.clone(),
 			},
 		)?;
 
@@ -328,6 +333,7 @@ pub fn new_full(mut config: Configuration) -> Result<TaskManager, ServiceError> 
 			prometheus_registry,
 			shared_voter_state: SharedVoterState::empty(),
 			telemetry: telemetry.as_ref().map(|x| x.handle()),
+			permission_resolver,
 		};
 
 		// the GRANDPA voter task is considered infallible, i.e.
