@@ -1,16 +1,145 @@
-version: "3.2"
-
+version: "3.7"
 services:
-  permission-service:
-    build:
-      context: .
-      dockerfile: bin/authority-service/docker/authority-service.Dockerfile
 
-  validator-alice:
+  validator-alice-1:
     image: bright/substrate-raft-setup
+    restart: always
     ports:
       - "9944:9944"
       - "9615:9615"
     command:
-      - "--dev"
-      - "--remote-authority=http://permission-service:8000"
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000001"
+      - "--base-path"
+      - "/tmp/alice-1"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--alice"
+      - "--bootnodes"
+      - "/dns/validator-bob/tcp/30333/p2p/12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"
+      - "--remote-authority"
+      - "pd-1:2379"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
+      - "-lafg=debug"
+      - "--prometheus-port"
+      - "9615"
+
+  validator-alice-2:
+    image: bright/substrate-raft-setup
+    restart: always
+    command:
+      - "--base-path"
+      - "/tmp/alice-2"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--alice"
+      - "--bootnodes"
+      - "/dns/validator-bob/tcp/30333/p2p/12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"
+      - "--remote-authority"
+      - "pd-1:2379"
+      - "-lafg=debug"
+      - "--prometheus-port"
+      - "9616"
+
+  validator-bob:
+    image: bright/substrate-raft-setup
+    command:
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000002"
+      - "--base-path"
+      - "/tmp/bob"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--bob"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  validator-eve:
+    image: bright/substrate-raft-setup
+    command:
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000003"
+      - "--base-path"
+      - "/tmp/eve"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--eve"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  validator-dave:
+    image: bright/substrate-raft-setup
+    command:
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000004"
+      - "--base-path"
+      - "/tmp/dave"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--dave"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  validator-charlie:
+    image: bright/substrate-raft-setup
+    command:
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000005"
+      - "--base-path"
+      - "/tmp/charlie"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--charlie"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  pd-1:
+    image: pingcap/pd:v6.5.0
+    command:
+      - "--name=pd-1"
+      - "--client-urls=http://0.0.0.0:2379"
+      - "--peer-urls=http://0.0.0.0:2380"
+      - "--advertise-client-urls=http://pd-1:2379"
+      - "--advertise-peer-urls=http://pd-1:2380"
+
+  tikv-1:
+    image: pingcap/tikv:v6.5.0
+    command:
+      - "--pd=pd-1:2379"
+      - "--addr=0.0.0.0:20160"
+      - "--advertise-addr=tikv-1:20160"
+
+  tikv-2:
+    image: pingcap/tikv:v6.5.0
+    command:
+      - "--pd=pd-1:2379"
+      - "--addr=0.0.0.0:20160"
+      - "--advertise-addr=tikv-2:20160"
+
+  tikv-3:
+    image: pingcap/tikv:v6.5.0
+    command:
+      - "--pd=pd-1:2379"
+      - "--addr=0.0.0.0:20160"
+      - "--advertise-addr=tikv-3:20160"

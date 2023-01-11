@@ -23,8 +23,9 @@ pub struct RunCmd {
 	#[clap(flatten)]
 	pub base: sc_cli::RunCmd,
 
+	/// List of tikv pd server addresses
 	#[clap(long)]
-	pub remote_authority: String,
+	pub remote_authority: Vec<String>,
 }
 
 #[derive(Debug, clap::Subcommand)]
@@ -193,7 +194,8 @@ impl CliConfiguration for RunCmd {
 			Box::new(AlwaysPermissionGrantedFactory {})
 		} else {
 			Box::new(RemoteAuthorityPermissionResolverFactory {
-				remote_url: self.remote_authority.clone(),
+				remote_urls: self.remote_authority.clone(),
+				cached: true,
 			})
 		}
 	}

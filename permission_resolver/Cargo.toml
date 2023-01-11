@@ -10,9 +10,8 @@ sp-authority-permission = { version = "4.0.0-dev", git = "https://github.com/bri
 sp-consensus-slots = { version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
 
 async-trait = "0.1.57"
+tikv-client = "0.1.0"
 log = { version = "0.4.17", default-features = false }
 tokio = { version = "1.17.0", features = ["macros", "rt-multi-thread"] }
-reqwest = "0.11.11"
-
-[dev-dependencies]
-httpmock = "0.6.7"
+prometheus-endpoint = { package = "substrate-prometheus-endpoint", version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+thiserror = "1.0"
