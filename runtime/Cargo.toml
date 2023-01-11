@@ -16,40 +16,40 @@ targets = ["x86_64-unknown-linux-gnu"]
 codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false, features = ["derive"] }
 scale-info = { version = "2.1.1", default-features = false, features = ["derive"] }
 
-pallet-aura = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-pallet-balances = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-frame-support = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-pallet-randomness-collective-flip = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-pallet-sudo = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-frame-system = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", optional = true , branch = "feat/remove-remote-permission-resolver" }
-pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-frame-executive = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-api = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-block-builder = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-consensus-aura = { version = "0.10.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-core = { version = "6.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-inherents = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-offchain = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-runtime = { version = "6.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-session = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-std = { version = "4.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-sp-version = { version = "5.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
+pallet-aura = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+pallet-balances = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+frame-support = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+pallet-randomness-collective-flip = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+pallet-sudo = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+frame-system = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", optional = true , branch = "feat/cli-conf-2" }
+pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+frame-executive = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-api = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-block-builder = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-consensus-aura = { version = "0.10.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-core = { version = "6.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-inherents = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-offchain = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-runtime = { version = "6.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-session = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-std = { version = "4.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sp-version = { version = "5.0.0", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
 
 # Used for the node template's RPCs
-frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
+frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
 
 # Used for runtime benchmarking
-frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", optional = true , branch = "feat/remove-remote-permission-resolver" }
-frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", optional = true , branch = "feat/remove-remote-permission-resolver" }
+frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", optional = true , branch = "feat/cli-conf-2" }
+frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = "ssh://git@github.com/bright/substrate-priv.git", optional = true , branch = "feat/cli-conf-2" }
 hex-literal = { version = "0.3.4", optional = true }
 
 [build-dependencies]
-substrate-wasm-builder = { version = "5.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
+substrate-wasm-builder = { version = "5.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
 
 [features]
 default = ["std"]
