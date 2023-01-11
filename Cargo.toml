@@ -2,6 +2,7 @@
 members = [
     "node",
     "runtime",
+    "permission_resolver"
 ]
 [profile.release]
 panic = "unwind"

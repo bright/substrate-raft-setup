@@ -1,0 +1,17 @@
+[package]
+name = "permission-resolver"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sp-authority-permission = { version = "4.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "raft-validators-dev" }
+sp-consensus-slots = { version = "0.10.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "raft-validators-dev" }
+
+async-trait = "0.1.57"
+tikv-client = "0.1.0"
+log = { version = "0.4.17", default-features = false }
+tokio = { version = "1.17.0", features = ["macros", "rt-multi-thread"] }
+prometheus-endpoint = { package = "substrate-prometheus-endpoint", version = "0.10.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "raft-validators-dev" }
+thiserror = "1.0"
