@@ -1,17 +1,181 @@
-version: "3.2"
-
+version: "3.7"
 services:
-  dev:
-    container_name: node-template
-    image: paritytech/ci-linux:production
-    working_dir: /var/www/node-template
+
+  validator-alice-1:
+    image: bright/substrate-raft-setup
     ports:
       - "9944:9944"
-    environment:
-      - CARGO_HOME=/var/www/node-template/.cargo
-    volumes:
-      - .:/var/www/node-template
-      - type: bind
-        source: ./.local
-        target: /root/.local
-    command: bash -c "cargo build --release && ./target/release/node-template --dev --ws-external"
+      - "9615:9615"
+    command:
+      - "substrate"
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000001"
+      - "--base-path"
+      - "/tmp/alice-1"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--alice"
+      - "--bootnodes"
+      - "/dns/validator-bob/tcp/30333/p2p/12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"
+      - "--remote-authority"
+      - "pd-1:2379"
+      - "--remote-authority"
+      - "pd-2:2379"
+      - "--remote-authority"
+      - "pd-3:2379"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
+      - "-lafg=debug"
+      - "--prometheus-port"
+      - "9615"
+
+  validator-alice-2:
+    image: bright/substrate-raft-setup
+    ports:
+      - "9616:9616"
+    command:
+      - "substrate"
+      - "--base-path"
+      - "/tmp/alice-2"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--alice"
+      - "--bootnodes"
+      - "/dns/validator-bob/tcp/30333/p2p/12D3KooWHdiAxVd8uMQR1hGWXccidmfCwLqcMpGwR6QcTP6QRMuD"
+      - "--remote-authority"
+      - "pd-1:2379"
+      - "--remote-authority"
+      - "pd-2:2379"
+      - "--remote-authority"
+      - "pd-3:2379"
+      - "-lafg=debug"
+      - "--prometheus-port"
+      - "9616"
+
+  validator-bob:
+    image: bright/substrate-raft-setup
+    command:
+      - "substrate"
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000002"
+      - "--base-path"
+      - "/tmp/bob"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--bob"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  validator-eve:
+    image: bright/substrate-raft-setup
+    command:
+      - "substrate"
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000003"
+      - "--base-path"
+      - "/tmp/eve"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--eve"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  validator-dave:
+    image: bright/substrate-raft-setup
+    command:
+      - "substrate"
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000004"
+      - "--base-path"
+      - "/tmp/dave"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--dave"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  validator-charlie:
+    image: bright/substrate-raft-setup
+    command:
+      - "substrate"
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000005"
+      - "--base-path"
+      - "/tmp/charlie"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--charlie"
+      - "--bootnodes"
+      - "/dns/validator-alice-1/tcp/30333/p2p/12D3KooWEyoppNCUx8Yx66oV9fJnriXwCcXwDDUA2kj6vnc6iDEp"
+      - "--no-telemetry"
+      - "-lafg=debug"
+
+  pd-1:
+    image: pingcap/pd
+    command:
+      - --name=pd-1
+      - --client-urls=http://0.0.0.0:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-client-urls=http://pd-1:2379
+      - --advertise-peer-urls=http://pd-1:2380
+      - --initial-cluster=pd-1=http://pd-1:2380, pd-2=http://pd-2:2380, pd-3=http://pd-3:2380
+
+  pd-2:
+    image: pingcap/pd
+    command:
+      - --name=pd-2
+      - --client-urls=http://0.0.0.0:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-client-urls=http://pd-2:2379
+      - --advertise-peer-urls=http://pd-2:2380
+      - --initial-cluster=pd-2=http://pd-2:2380, pd-1=http://pd-1:2380, pd-3=http://pd-3:2380
+
+  pd-3:
+    image: pingcap/pd
+    command:
+      - --name=pd-3
+      - --client-urls=http://0.0.0.0:2379
+      - --peer-urls=http://0.0.0.0:2380
+      - --advertise-client-urls=http://pd-3:2379
+      - --advertise-peer-urls=http://pd-3:2380
+      - --initial-cluster=pd-3=http://pd-3:2380, pd-2=http://pd-2:2380, pd-1=http://pd-1:2380
+
+
+  tikv-1:
+    image: pingcap/tikv
+    command:
+      - "--pd=pd-1:2379, pd-2:2379, pd-3:2379"
+      - "--addr=0.0.0.0:20160"
+      - "--advertise-addr=tikv-1:20160"
+
+  tikv-2:
+    image: pingcap/tikv
+    command:
+      - "--pd=pd-1:2379, pd-2:2379, pd-3:2379"
+      - "--addr=0.0.0.0:20160"
+      - "--advertise-addr=tikv-2:20160"
+
+  tikv-3:
+    image: pingcap/tikv
+    command:
+      - "--pd=pd-1:2379, pd-2:2379, pd-3:2379"
+      - "--addr=0.0.0.0:20160"
+      - "--advertise-addr=tikv-3:20160"
