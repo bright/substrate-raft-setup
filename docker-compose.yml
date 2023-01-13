@@ -1,17 +1,26 @@
 version: "3.2"
 
 services:
-  dev:
-    container_name: node-template
-    image: paritytech/ci-linux:production
-    working_dir: /var/www/node-template
+  permission-service:
+    build:
+      context: .
+      dockerfile: bin/authority-service/docker/authority-service.Dockerfile
+
+  validator-alice:
+    image: bright/substrate-raft-setup
     ports:
       - "9944:9944"
-    environment:
-      - CARGO_HOME=/var/www/node-template/.cargo
-    volumes:
-      - .:/var/www/node-template
-      - type: bind
-        source: ./.local
-        target: /root/.local
-    command: bash -c "cargo build --release && ./target/release/node-template --dev --ws-external"
+      - "9615:9615"
+    command:
+      - "--node-key"
+      - "0000000000000000000000000000000000000000000000000000000000000001"
+      - "--base-path"
+      - "/tmp/alice-1"
+      - "--chain=local"
+      - "--port"
+      - "30333"
+      - "--validator"
+      - "--alice"
+      - "--remote-authority=http://permission-service:8000"
+      - "--unsafe-ws-external"
+      - "--unsafe-rpc-external"
