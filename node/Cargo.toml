@@ -44,14 +44,14 @@ pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, 
 
 # These dependencies are used for the node template's RPCs
 jsonrpsee = { version = "0.15.1", features = ["server"] }
-sc-rpc = { version = "4.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
-sp-api = { version = "4.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
-sc-rpc-api = { version = "0.10.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
-sp-blockchain = { version = "4.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
-sp-block-builder = { version = "4.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
-sc-basic-authorship = { version = "0.10.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
-substrate-frame-rpc-system = { version = "4.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
-pallet-transaction-payment-rpc = { version = "4.0.0-dev", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/cli-conf-2" }
+sc-rpc = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+sp-api = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+sc-rpc-api = { version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+sp-blockchain = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+sp-block-builder = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+sc-basic-authorship = { version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+substrate-frame-rpc-system = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+pallet-transaction-payment-rpc = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
 
 # These dependencies are used for runtime benchmarking
 frame-benchmarking = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
@@ -63,16 +63,7 @@ node-template-runtime = { version = "4.0.0-dev", path = "../runtime" }
 # CLI-specific dependencies
 try-runtime-cli = { version = "0.10.0-dev", optional = true, git = "https://github.com/bright/substrate-raft.git" }
 
-async-trait = "0.1.57"
-tikv-client = "0.1.0"
-log = { version = "0.4.17", default-features = false }
-tokio = { version = "1.17.0", features = ["macros", "rt-multi-thread"] }
-prometheus-endpoint = { package = "substrate-prometheus-endpoint", version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git" }
-thiserror = "1.0"
-try-runtime-cli = { version = "0.10.0-dev", optional = true, git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
-
 [build-dependencies]
-substrate-build-script-utils = { version = "3.0.0", git = "ssh://git@github.com/bright/substrate-priv.git", branch = "feat/remove-remote-permission-resolver" }
 substrate-build-script-utils = { version = "3.0.0", git = "https://github.com/bright/substrate-raft.git" }
 
 [features]
