@@ -20,6 +20,7 @@ lorri `lorri shell`.
 ### Rust Setup
 
 First, complete the [basic Rust setup instructions](./docs/rust-setup.md).
+Use Rust 1.63
 
 ### Run
 
