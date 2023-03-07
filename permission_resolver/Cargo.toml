@@ -1,0 +1,18 @@
+[package]
+name = "permission-resolver"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+sp-authority-permission = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+sp-consensus-slots = { version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+
+async-trait = "0.1.57"
+log = { version = "0.4.17", default-features = false }
+tokio = { version = "1.17.0", features = ["macros", "rt-multi-thread"] }
+reqwest = "0.11.11"
+
+[dev-dependencies]
+httpmock = "0.6.7"

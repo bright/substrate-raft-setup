@@ -59,6 +59,7 @@ frame-benchmarking-cli = { version = "4.0.0-dev", git = "https://github.com/brig
 
 # Local Dependencies
 node-template-runtime = { version = "4.0.0-dev", path = "../runtime" }
+permission-resolver = { version = "0.1.0", path = "../permission_resolver"}
 
 # CLI-specific dependencies
 try-runtime-cli = { version = "0.10.0-dev", optional = true, git = "https://github.com/bright/substrate-raft.git" }
