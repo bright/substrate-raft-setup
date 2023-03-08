@@ -6,8 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-sp-authority-permission = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
-sp-consensus-slots = { version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+sp-authority-permission = { version = "4.0.0-dev", git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-consensus-slots = { version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
 
 async-trait = "0.1.57"
 log = { version = "0.4.17", default-features = false }
