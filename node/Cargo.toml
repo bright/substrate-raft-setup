@@ -59,10 +59,17 @@ frame-benchmarking-cli = { version = "4.0.0-dev", git = "https://github.com/brig
 
 # Local Dependencies
 node-template-runtime = { version = "4.0.0-dev", path = "../runtime" }
-permission-resolver = { version = "0.1.0", path = "../permission_resolver"}
+permission-resolver = { version = "0.1.0", path = "../permission_resolver" }
 
 # CLI-specific dependencies
 try-runtime-cli = { version = "0.10.0-dev", optional = true, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+
+async-trait = "0.1.57"
+tikv-client = "0.1.0"
+log = { version = "0.4.17", default-features = false }
+tokio = { version = "1.17.0", features = ["macros", "rt-multi-thread"] }
+prometheus-endpoint = { package = "substrate-prometheus-endpoint", version = "0.10.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+thiserror = "1.0"
 
 [build-dependencies]
 substrate-build-script-utils = { version = "3.0.0", git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
