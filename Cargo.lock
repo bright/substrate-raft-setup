@@ -3999,7 +3999,7 @@ dependencies = [
  "sp-timestamp",
  "substrate-build-script-utils",
  "substrate-frame-rpc-system",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git)",
  "thiserror",
  "tikv-client",
  "tokio",
@@ -4616,7 +4616,7 @@ dependencies = [
  "log",
  "sp-authority-permission",
  "sp-consensus-slots",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git)",
  "thiserror",
  "tikv-client",
  "tokio",
@@ -5680,7 +5680,7 @@ dependencies = [
  "sp-core",
  "sp-inherents",
  "sp-runtime",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
 ]
 
 [[package]]
@@ -5792,7 +5792,7 @@ dependencies = [
  "sp-state-machine",
  "sp-storage",
  "sp-trie",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
 ]
 
 [[package]]
@@ -5840,7 +5840,7 @@ dependencies = [
  "sp-core",
  "sp-runtime",
  "sp-state-machine",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "thiserror",
 ]
 
@@ -5870,7 +5870,7 @@ dependencies = [
  "sp-inherents",
  "sp-keystore",
  "sp-runtime",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "thiserror",
 ]
 
@@ -6016,7 +6016,7 @@ dependencies = [
  "sp-finality-grandpa",
  "sp-keystore",
  "sp-runtime",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "thiserror",
 ]
 
@@ -6094,7 +6094,7 @@ dependencies = [
  "sp-consensus",
  "sp-core",
  "sp-runtime",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "thiserror",
  "unsigned-varint",
  "void",
@@ -6138,7 +6138,7 @@ dependencies = [
  "sc-network-common",
  "sc-peerset",
  "sp-runtime",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "tracing",
 ]
 
@@ -6242,7 +6242,7 @@ version = "0.10.0-dev"
 source = "git+https://github.com/bright/substrate-raft.git?tag=m2#f4bab8f2a461271ab52ec6343934f6b84623b6c8"
 dependencies = [
  "log",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
 ]
 
 [[package]]
@@ -6307,7 +6307,7 @@ dependencies = [
  "jsonrpsee",
  "log",
  "serde_json",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "tokio",
 ]
 
@@ -6371,7 +6371,7 @@ dependencies = [
  "sp-transaction-storage-proof",
  "sp-trie",
  "sp-version",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "tempfile",
  "thiserror",
  "tokio",
@@ -6494,7 +6494,7 @@ dependencies = [
  "sp-runtime",
  "sp-tracing",
  "sp-transaction-pool",
- "substrate-prometheus-endpoint",
+ "substrate-prometheus-endpoint 0.10.0-dev (git+https://github.com/bright/substrate-raft.git?tag=m2)",
  "thiserror",
 ]
 
@@ -7722,6 +7722,19 @@ dependencies = [
 name = "substrate-prometheus-endpoint"
 version = "0.10.0-dev"
 source = "git+https://github.com/bright/substrate-raft.git?tag=m2#f4bab8f2a461271ab52ec6343934f6b84623b6c8"
+dependencies = [
+ "futures-util",
+ "hyper",
+ "log",
+ "prometheus 0.13.2",
+ "thiserror",
+ "tokio",
+]
+
+[[package]]
+name = "substrate-prometheus-endpoint"
+version = "0.10.0-dev"
+source = "git+https://github.com/bright/substrate-raft.git#f4bab8f2a461271ab52ec6343934f6b84623b6c8"
 dependencies = [
  "futures-util",
  "hyper",

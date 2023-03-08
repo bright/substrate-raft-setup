@@ -29,6 +29,7 @@ struct Metrics {
 }
 
 impl Metrics {
+	#[allow(dead_code)]
 	pub fn new(registry: &prometheus_endpoint::Registry) -> Result<Self, Error> {
 		Ok(Self {
 			round: Mutex::new(DoubleCounter::new(registry, "substrate_authority_permission_round", "Number of times authority permission granted the validator to participate in voting.")?),
@@ -54,6 +55,7 @@ pub struct PermissionResolverMetrics {
 
 //todo: use metrics
 impl PermissionResolverMetrics {
+	#[allow(dead_code)]
 	pub fn new(
 		resolver: Box<dyn PermissionResolver>,
 		registry: &prometheus_endpoint::Registry,
