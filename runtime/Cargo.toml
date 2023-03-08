@@ -16,40 +16,40 @@ targets = ["x86_64-unknown-linux-gnu"]
 codec = { package = "parity-scale-codec", version = "3.0.0", default-features = false, features = ["derive"] }
 scale-info = { version = "2.1.1", default-features = false, features = ["derive"] }
 
-pallet-aura = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-pallet-balances = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-pallet-randomness-collective-flip = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-pallet-sudo = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-frame-system = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", optional = true  }
-pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-frame-executive = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-block-builder = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-consensus-aura = { version = "0.10.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-core = { version = "6.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-inherents = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-offchain = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-runtime = { version = "6.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-session = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-std = { version = "4.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-sp-version = { version = "5.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
+pallet-aura = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+pallet-balances = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+frame-support = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+pallet-grandpa = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+pallet-randomness-collective-flip = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+pallet-sudo = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+frame-system = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+frame-try-runtime = { version = "0.10.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2", optional = true  }
+pallet-timestamp = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+pallet-transaction-payment = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+frame-executive = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-block-builder = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-consensus-aura = { version = "0.10.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-core = { version = "6.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-inherents = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-offchain = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-runtime = { version = "6.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-session = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-std = { version = "4.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-transaction-pool = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+sp-version = { version = "5.0.0", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
 
 # Used for the node template's RPCs
-frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
-pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git" }
+frame-system-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
+pallet-transaction-payment-rpc-runtime-api = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
 
 # Used for runtime benchmarking
-frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", optional = true  }
-frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", optional = true  }
+frame-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2", optional = true  }
+frame-system-benchmarking = { version = "4.0.0-dev", default-features = false, git = "https://github.com/bright/substrate-raft.git", tag = "m2", optional = true  }
 hex-literal = { version = "0.3.4", optional = true }
 
 [build-dependencies]
-substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/bright/substrate-raft.git" }
+substrate-wasm-builder = { version = "5.0.0-dev", git = "https://github.com/bright/substrate-raft.git", tag = "m2" }
 
 [features]
 default = ["std"]
