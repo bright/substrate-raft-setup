@@ -48,7 +48,13 @@ fn rocket() -> _ {
 		}
 	}
 
-	rocket::build()
-		.manage(Arc::new(Mutex::new(data)))
-        .mount("/", routes![handler::authorize_slot, handler::authorize_round, handler::authorize_session, handler::authorize_fix_order])
+	rocket::build().manage(Arc::new(Mutex::new(data))).mount(
+		"/",
+		routes![
+			handler::authorize_slot,
+			handler::authorize_round,
+			handler::authorize_session,
+			handler::authorize_fix_order
+		],
+	)
 }
