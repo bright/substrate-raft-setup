@@ -133,6 +133,28 @@ mod test {
 	}
 
 	#[test]
+	fn test_authorize_round() {
+		use rocket::local::blocking::Client;
+
+		let rocket = rocket::build()
+			.manage(Arc::new(Mutex::new(authority::AuthorityData::new())))
+			.mount("/", routes![authorize_round]);
+
+		let client = Client::tracked(rocket).unwrap();
+		let response = client.put("/authorize/round/1").dispatch();
+		assert_eq!(response.status(), Status::Ok);
+		assert_eq!(response.into_string(), Some("true".into()));
+
+		let response = client.put("/authorize/round/1").dispatch();
+		assert_eq!(response.status(), Status::Ok);
+		assert_eq!(response.into_string(), Some("false".into()));
+
+		let response = client.put("/authorize/round/2").dispatch();
+		assert_eq!(response.status(), Status::Ok);
+		assert_eq!(response.into_string(), Some("true".into()));
+	}
+
+	#[test]
 	fn test_authorize_fix_order() {
 		use rocket::local::blocking::Client;
 
