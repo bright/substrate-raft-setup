@@ -84,7 +84,7 @@ pub fn authorize_session(
 
 #[cfg(test)]
 mod test {
-	use super::{rocket, *};
+	use super::{authorize_slot, rocket, *};
 	use crate::config;
 	use rocket::http::Status;
 
@@ -110,13 +110,13 @@ mod test {
 		assert_eq!(response.into_string(), Some("true".into()));
 	}
 
-    #[test]
+	#[test]
 	fn test_authorize_session() {
 		use rocket::local::blocking::Client;
 
 		let rocket = rocket::build()
 			.manage(Arc::new(Mutex::new(authority::AuthorityData::new())))
-			.mount("/", routes![authorize]);
+			.mount("/", routes![authorize_session]);
 
 		let client = Client::tracked(rocket).unwrap();
 		let response = client.put("/authorize/session/1").dispatch();
